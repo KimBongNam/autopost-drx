@@ -21,8 +21,10 @@ for i, name in enumerate(member):
     rank[i] = result[0]['tier']
     point[i] = result[0]['leaguePoints']
 
-chrome_options = Options()
-chrome_options.binary_location = GOOGLE_CHROME_BIN
+GOOGLE_CHROME_PATH = os.environ.get('GOOGLE_CHROME_BIN')
+CHROMEDRIVER_PATH = os.environ.get("CHROMEDRIVER_PATH")
+chrome_options = webdriver.ChromeOptions()
+chrome_options.binary_location = GOOGLE_CHROME_PATH
 chrome_options.add_argument('--disable-gpu')
 chrome_options.add_argument('--no-sandbox')
 driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
