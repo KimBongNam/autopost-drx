@@ -8,7 +8,7 @@ sch = BlockingScheduler()
 @sch.scheduled_job('interval', hours=1)
 def job():
     member = ['모찌피치모찌피치', 'DRX 홍창현', '요붕스1', 'DRX Deft', 'DRX Keria']
-    api_key = os.environ.get('apikey')
+    api_key = os.environ.get(apikey)
     dcid = os.environ.get('dcid')
     dcpw = os.environ.get('dcpw')
     watcher = LolWatcher(api_key)
@@ -27,8 +27,8 @@ def job():
     driver = webdriver.Chrome(driver)
     driver.get('https://gall.dcinside.com/mgallery/board/lists?id=longzhugaming')
     driver.find_element_by_class_name('user_info').click()
-    driver.find_element_by_id('id').send_keys('dcid')
-    driver.find_element_by_id('pw').send_keys('dcpw')
+    driver.find_element_by_id('id').send_keys(dcid)
+    driver.find_element_by_id('pw').send_keys(dcpw)
     driver.find_element_by_xpath('//*[@id="container"]/div/article/section/div/div[1]/div/form/fieldset/button').click()
 
     try:
