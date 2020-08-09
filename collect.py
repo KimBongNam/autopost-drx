@@ -1,7 +1,7 @@
 from riotwatcher import LolWatcher, ApiError
 
 member = ['모찌피치모찌피치', 'DRX 홍창현', '요붕스1', 'DRX Deft', 'DRX Keria']
-api_key = 'RGAPI-1e751ed8-a379-41d7-8d2d-e6e4ca9aca6a'
+api_key = ''
 watcher = LolWatcher(api_key)
 my_region = 'kr'
 
