@@ -20,8 +20,12 @@ for i, name in enumerate(member):
     result = watcher.league.by_summoner(my_region, me['id'])
     rank[i] = result[0]['tier']
     point[i] = result[0]['leaguePoints']
-    
-driver = 'chromedriver.exe'
+
+chrome_options = Options()
+chrome_options.binary_location = GOOGLE_CHROME_BIN
+chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--no-sandbox')
+driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
 driver = webdriver.Chrome(driver)
 driver.get('https://gall.dcinside.com/mgallery/board/lists?id=longzhugaming')
 driver.find_element_by_class_name('user_info').click()
