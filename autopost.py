@@ -8,7 +8,7 @@ sch = BlockingScheduler()
 @sch.scheduled_job('interval', hours=1)
 def job():
     member = ['모찌피치모찌피치', 'DRX 홍창현', '요붕스1', 'DRX Deft', 'DRX Keria']
-    api_key = os.environ.get(apikey)
+    api_key = os.environ.get('apikey')
     dcid = os.environ.get('dcid')
     dcpw = os.environ.get('dcpw')
     watcher = LolWatcher(api_key)
