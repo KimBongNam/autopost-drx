@@ -5,7 +5,7 @@ import os
 
 sch = BlockingScheduler()
 
-@sch.scheduled_job('interval', minute=30)
+@sch.scheduled_job('interval', minutes=30)
 def job():
     member = ['모찌피치모찌피치', 'DRX 홍창현', '요붕스1', 'DRX Deft', 'DRX Keria']
     api_key = os.environ.get('apikey')
