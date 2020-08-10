@@ -27,6 +27,7 @@ op.add_argument("--no-sandbox")
 driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=op)
 
 driver.get('https://gall.dcinside.com/mgallery/board/lists?id=longzhugaming')
+driver.implicitly_wait(2)
 driver.find_element_by_class_name('user_info').click()
 driver.implicitly_wait(2)
 driver.find_element_by_xpath('//*[@id="id"]').send_keys(dcid)
