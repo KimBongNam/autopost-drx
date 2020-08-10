@@ -28,16 +28,18 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), c
 
 driver.get('https://gall.dcinside.com/mgallery/board/lists?id=longzhugaming')
 driver.find_element_by_class_name('user_info').click()
+driver.implicitly_wait(2)
 driver.find_element_by_xpath('//*[@id="id"]').send_keys(dcid)
 driver.find_element_by_xpath('//*[@id="pw"]').send_keys(dcpw)
 driver.find_element_by_xpath('//*[@id="container"]/div/article/section/div/div[1]/div/form/fieldset/button').click()
-
+driver.implicitly_wait(2)
 try:
     driver.find_element_by_xpath('//*[@id="contbox"]/div/div[3]/button[2]').click()
 except:
     pass
-
+driver.implicitly_wait(2)
 driver.find_element_by_id('btn_write').click()
+driver.implicitly_wait(2)
 driver.find_element_by_id('subject').send_keys('선수들 솔랭 점수.bot')
 driver.switch_to_frame(driver.find_element_by_xpath("//*[@id='tx_canvas_wysiwyg']"))
 
