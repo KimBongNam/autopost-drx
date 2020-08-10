@@ -5,8 +5,8 @@ import os
 
 member = ['모찌피치모찌피치', 'DRX 홍창현', '요붕스1', 'DRX Deft', 'DRX Keria']
 api_key = os.environ.get('apikey')
-dcid = os.environ.get('dcid')
-dcpw = os.environ.get('dcpw')
+dcid = str(os.environ.get('dcid'))
+dcpw = str(os.environ.get('dcpw'))
 watcher = LolWatcher(api_key)
 my_region = 'kr'
 
@@ -19,12 +19,12 @@ for i, name in enumerate(member):
     rank[i] = result[0]['tier']
     point[i] = result[0]['leaguePoints']
 
-chrome_options = webdriver.ChromeOptions()
-chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-chrome_options.add_argument("--headless")
-chrome_options.add_argument("--disable-dev-shm-usage")
-chrome_options.add_argument("--no-sandbox")
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+op = webdriver.ChromeOptions()
+op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+op.add_argument("--headless")
+op.add_argument("--disable-dev-shm-usage")
+op.add_argument("--no-sandbox")
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=op)
 
 driver.get('https://gall.dcinside.com/mgallery/board/lists?id=longzhugaming')
 driver.find_element_by_class_name('user_info').click()
