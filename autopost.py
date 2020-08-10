@@ -28,8 +28,8 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), c
 
 driver.get('https://gall.dcinside.com/mgallery/board/lists?id=longzhugaming')
 driver.find_element_by_class_name('user_info').click()
-driver.find_element_by_id('id').send_keys(dcid)
-driver.find_element_by_id('pw').send_keys(dcpw)
+driver.find_element_by_xpath('//*[@id="id"]').send_keys(dcid)
+driver.find_element_by_xpath('//*[@id="pw"]').send_keys(dcpw)
 driver.find_element_by_xpath('//*[@id="container"]/div/article/section/div/div[1]/div/form/fieldset/button').click()
 
 try:
