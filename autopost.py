@@ -30,12 +30,12 @@ driver.get('https://gall.dcinside.com/mgallery/board/lists?id=longzhugaming')
 driver.implicitly_wait(20)
 driver.find_element_by_class_name('user_info').click()
 driver.implicitly_wait(20)
-driver.find_element_by_xpath('\\*[@id="id"]').send_keys(dcid)
-driver.find_element_by_xpath('\\*[@id="pw"]').send_keys(dcpw)
-driver.find_element_by_xpath('\\*[@id="container"]/div/article/section/div/div[1]/div/form/fieldset/button').click()
+driver.find_element_by_xpath('//*[@id="id"]').send_keys(dcid)
+driver.find_element_by_xpath('//*[@id="pw"]').send_keys(dcpw)
+driver.find_element_by_xpath('//*[@id="container"]/div/article/section/div/div[1]/div/form/fieldset/button').click()
 driver.implicitly_wait(20)
 try:
-    driver.find_element_by_xpath('\\*[@id="contbox"]/div/div[3]/button[2]').click()
+    driver.find_element_by_xpath('//*[@id="contbox"]/div/div[3]/button[2]').click()
 except:
     pass
 driver.implicitly_wait(20)
@@ -47,5 +47,5 @@ driver.switch_to_frame(driver.find_element_by_xpath("//*[@id='tx_canvas_wysiwyg'
 for i in range(5):
     driver.find_element_by_tag_name("body").send_keys(f'{member[i]} {rank[i]} {point[i]} \n')
 driver.switch_to_default_content()
-driver.find_element_by_xpath('\\*[@id="write"]/div[5]/button[2]').click()
+driver.find_element_by_xpath('//*[@id="write"]/div[5]/button[2]').click()
 
