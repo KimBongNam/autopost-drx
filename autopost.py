@@ -15,7 +15,7 @@ my_region = 'kr'
 
 rank = [0,0,0,0,0]
 point = [0,0,0,0,0]
-
+success = [1000,1000,1250,1150,1150]
 for i, name in enumerate(member):
     me = watcher.summoner.by_name(my_region, name)
     result = watcher.league.by_summoner(my_region, me['id'])
@@ -45,7 +45,7 @@ driver.find_element_by_id('subject').send_keys('선수들 솔랭 점수.bot')
 driver.switch_to_frame(driver.find_element_by_xpath("//*[@id='tx_canvas_wysiwyg']"))
 
 for i in range(5):
-    driver.find_element_by_tag_name("body").send_keys(f'{member[i]} {rank[i]} {point[i]} \n')
+    driver.find_element_by_tag_name("body").send_keys(f'{member[i]} {rank[i]} {point[i]}/{success[i]} \n')
 driver.switch_to_default_content()
 driver.find_element_by_xpath('//*[@id="write"]/div[5]/button[2]').click()
 
