@@ -30,41 +30,20 @@ op.add_argument("--no-sandbox")
 driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=op)
 
 driver.get('https://gall.dcinside.com/mgallery/board/lists?id=longzhugaming')
-try:
-    element = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CLASS_NAME, "user_info"))
-    )
-except:
-    pass
+print(driver.page_source)
 driver.find_element_by_class_name('user_info').click()
-try:
-    element = WebDriverWait(driver, 10).until(EC.element_to_be_selected((By.ID, "id"))
-    )
-except:
-    pass
+print(driver.page_source)
 driver.find_element_by_id('id').send_keys(dcid)
 driver.find_element_by_id('pw').send_keys(dcpw)
 driver.find_element_by_xpath('//*[@id="container"]/div/article/section/div/div[1]/div/form/fieldset/button').click()
-try:
-    element = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='contbox']/div/div[3]/button[2]"))
-    )
-except:
-    pass
+driver.implicitly_wait(20)
 try:
     driver.find_element_by_xpath('//*[@id="contbox"]/div/div[3]/button[2]').click()
 except:
     pass
-try:
-    element = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "btn_write"))
-    )
-except:
-    pass
-
+driver.implicitly_wait(20)
 driver.find_element_by_id('btn_write').click()
-try:
-    element = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='write']/div[5]/button[2]"))
-    )
-except:
-    pass
+driver.implicitly_wait(20)
 driver.find_element_by_id('subject').send_keys('선수들 솔랭 점수.bot')
 driver.switch_to_frame(driver.find_element_by_xpath("//*[@id='tx_canvas_wysiwyg']"))
 
