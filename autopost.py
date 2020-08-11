@@ -1,4 +1,7 @@
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from riotwatcher import LolWatcher, ApiError
 from apscheduler.schedulers.blocking import BlockingScheduler
 import os
@@ -27,20 +30,41 @@ op.add_argument("--no-sandbox")
 driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=op)
 
 driver.get('https://gall.dcinside.com/mgallery/board/lists?id=longzhugaming')
-driver.implicitly_wait(20)
+try:
+    element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "user_info"))
+    )
+except:
+    pass
 driver.find_element_by_class_name('user_info').click()
-driver.implicitly_wait(20)
-driver.find_element_by_xpath('//*[@id="id"]').send_keys(dcid)
-driver.find_element_by_xpath('//*[@id="pw"]').send_keys(dcpw)
+try:
+    element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "id"))
+    )
+except:
+    pass
+driver.find_element_by_id('id').send_keys(dcid)
+driver.find_element_by_id('pw').send_keys(dcpw)
 driver.find_element_by_xpath('//*[@id="container"]/div/article/section/div/div[1]/div/form/fieldset/button').click()
-driver.implicitly_wait(20)
+try:
+    element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[@id='contbox']/div/div[3]/button[2]"))
+    )
+except:
+    pass
 try:
     driver.find_element_by_xpath('//*[@id="contbox"]/div/div[3]/button[2]').click()
 except:
     pass
-driver.implicitly_wait(20)
+try:
+    element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "btn_write"))
+    )
+except:
+    pass
+
 driver.find_element_by_id('btn_write').click()
-driver.implicitly_wait(20)
+try:
+    element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[@id='write']/div[5]/button[2]"))
+    )
+except:
+    pass
 driver.find_element_by_id('subject').send_keys('선수들 솔랭 점수.bot')
 driver.switch_to_frame(driver.find_element_by_xpath("//*[@id='tx_canvas_wysiwyg']"))
 
