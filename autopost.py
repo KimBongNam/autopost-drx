@@ -31,13 +31,13 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), c
 
 driver.get('https://gall.dcinside.com/mgallery/board/lists?id=longzhugaming')
 try:
-    element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "user_info"))
+    element = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CLASS_NAME, "user_info"))
     )
 except:
     pass
 driver.find_element_by_class_name('user_info').click()
 try:
-    element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "id"))
+    element = WebDriverWait(driver, 10).until(EC.element_to_be_selected((By.ID, "id"))
     )
 except:
     pass
@@ -45,7 +45,7 @@ driver.find_element_by_id('id').send_keys(dcid)
 driver.find_element_by_id('pw').send_keys(dcpw)
 driver.find_element_by_xpath('//*[@id="container"]/div/article/section/div/div[1]/div/form/fieldset/button').click()
 try:
-    element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[@id='contbox']/div/div[3]/button[2]"))
+    element = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='contbox']/div/div[3]/button[2]"))
     )
 except:
     pass
@@ -54,14 +54,14 @@ try:
 except:
     pass
 try:
-    element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "btn_write"))
+    element = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "btn_write"))
     )
 except:
     pass
 
 driver.find_element_by_id('btn_write').click()
 try:
-    element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[@id='write']/div[5]/button[2]"))
+    element = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='write']/div[5]/button[2]"))
     )
 except:
     pass
