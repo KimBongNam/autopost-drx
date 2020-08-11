@@ -31,6 +31,8 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), c
 
 driver.get('https://gall.dcinside.com/mgallery/board/lists?id=longzhugaming')
 print(driver.page_source)
+print()
+print()
 driver.find_element_by_class_name('user_info').click()
 print(driver.page_source)
 driver.find_element_by_id('id').send_keys(dcid)
