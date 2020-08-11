@@ -48,4 +48,4 @@ for i in range(5):
     driver.find_element_by_tag_name("body").send_keys(f'{member[i]} {rank[i]} {point[i]}/{success[i]} \n')
 driver.switch_to.default_content()
 driver.find_element_by_xpath('//*[@id="write"]/div[5]/button[2]').click()
-
+print("OK")
