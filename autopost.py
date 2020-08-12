@@ -5,6 +5,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from riotwatcher import LolWatcher, ApiError
 from apscheduler.schedulers.blocking import BlockingScheduler
 import os
+import random
+import time
 
 member = ['모찌피치모찌피치', 'DRX 홍창현', '요붕스1', 'DRX Deft', 'DRX Keria']
 api_key = os.environ.get('apikey')
